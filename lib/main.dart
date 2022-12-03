@@ -62,20 +62,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void changePic() {
     setState(() {
+      int x = ind;
       ind = r.nextInt(images.length);
+      while (x == ind) ind = r.nextInt(images.length);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: GestureDetector(
-            child: Center(
-              child: images.elementAt(ind),
-            ),
-            onTap: () => changePic()));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: images.elementAt(ind),
+      ),
+    );
   }
 }
